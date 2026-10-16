@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management - Project Management</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-title">
+            <h2>PM</h2>
+            <p>Workspace</p>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+
+            <a href="dashboard.html#workspaceSection">
+                🗂 Workspaces
+            </a>
+
+            <a href="dashboard.html#projectSection">
+                📁 Projects
+            </a>
+
+            <a href="dashboard.html#taskSection">
+                ✅ Tasks
+            </a>
+
+            <a href="users.html">
+                👥 User Management
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Header -->
+
+    <header class="top-header">
+
+        <div class="brand">
+
+            <h1>Project Management</h1>
+
+            <span>Jira Clone</span>
+
+        </div>
+
+        <button id="logoutButton">
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- Main Content -->
+
+    <main id="userManagement">
+
+        <h2>User Management</h2>
+
+        <p>
+            Manage users and their roles in the project workspace.
+        </p>
+
+
+        <!-- User Summary -->
+
+        <div class="dashboard-cards">
+
+            <div class="card">
+
+                <h3>Total Users</h3>
+
+                <p id="userCount">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Admins</h3>
+
+                <p id="adminCount">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Users</h3>
+
+                <p id="normalUserCount">0</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- User List -->
+
+        <section class="user-section">
+
+            <h2>All Users</h2>
+
+            <div id="userList">
+
+                <p>Loading users...</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const API_URL = "http://localhost:8080";
+
+        const token = localStorage.getItem("token");
+        const userRole = localStorage.getItem("role");
+
+if (userRole !== "ADMIN") {
+    window.location.href = "dashboard.html";
+}
+
+        const headers = {
+            "Authorization": "Bearer " + token,
+            "Content-Type": "application/json"
+        };
+
+
+        // Logout
+
+        document.getElementById("logoutButton")
+            .addEventListener("click", function () {
+
+                localStorage.removeItem("token");
+
+                window.location.href = "login.html";
+
+            });
+
+
+        // Get Users
+
+        fetch(API_URL + "/api/users", {
+            headers: headers
+        })
+
+        .then(response => {
+
+            if (response.status === 401) {
+
+                throw new Error("Unauthorized");
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(users => {
+
+            document.getElementById("userCount").textContent =
+                users.length;
+
+
+            const adminCount = users.filter(
+                user => user.role === "ADMIN"
+            ).length;
+
+
+            const normalUserCount = users.filter(
+                user => user.role === "USER"
+            ).length;
+
+
+            document.getElementById("adminCount").textContent =
+                adminCount;
+
+
+            document.getElementById("normalUserCount").textContent =
+                normalUserCount;
+
+
+            displayUsers(users);
+
+        })
+
+        .catch(error => {
+
+            console.error("User error:", error);
+
+            document.getElementById("userList").innerHTML =
+                "<p>Unable to load users.</p>";
+
+        });
+
+
+        // Display Users
+
+        function displayUsers(users) {
+
+            const userList =
+                document.getElementById("userList");
+
+            userList.innerHTML = "";
+
+
+            if (users.length === 0) {
+
+                userList.innerHTML =
+                    "<p>No users available.</p>";
+
+                return;
+
+            }
+
+
+            users.forEach(user => {
+                const role = user.role || "USER";  
+                const userItem =
+                    document.createElement("div");
+
+                userItem.className = "user-item";
+
+
+                userItem.innerHTML = `
+
+    <div class="user-info">
+
+        <h3>
+            👤 ${user.name}
+        </h3>
+
+        <p>
+            📧 ${user.email}
+        </p>
+
+    </div>
+
+    <div class="user-role">
+
+        <span class="role-badge ${(user.role || "USER").toLowerCase()}">
+    ${user.role || "USER"}
+</span>
+
+        <select onchange="updateUserRole(${user.id}, this.value)">
+
+            <option value="USER" ${user.role === "USER" ? "selected" : ""}>
+                USER
+            </option>
+
+            <option value="ADMIN" ${user.role === "ADMIN" ? "selected" : ""}>
+                ADMIN
+            </option>
+
+        </select>
+
+        <button
+            class="delete-user-button"
+            onclick="deleteUser(${user.id}, '${user.name}')">
+            Delete
+        </button>
+
+    </div>
+
+`;
+
+
+                userList.appendChild(userItem);
+
+            });
+
+        }
+        function deleteUser(id, name) {
+
+    const confirmed = confirm(
+        "Are you sure you want to delete " + name + "?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    fetch(API_URL + "/api/users/" + id, {
+        method: "DELETE",
+        headers: headers
+    })
+
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error("Failed to delete user");
+        }
+
+        return response.text();
+
+    })
+
+    .then(message => {
+
+        alert(message);
+
+        location.reload();
+
+    })
+
+    .catch(error => {
+
+        console.error("Delete error:", error);
+
+        alert("Unable to delete user.");
+
+    });
+}
+        function updateUserRole(id, role){
+
+    fetch(
+        API_URL +
+        "/api/users/" +
+        id +
+        "/role?role=" +
+        encodeURIComponent(role),
+        {
+            method: "PUT",
+
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        }
+    )
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error("Role update failed");
+        }
+
+        return response.json();
+
+    })
+    .then(user => {
+
+        alert("Role updated successfully");
+
+        location.reload();
+
+    })
+    .catch(error => {
+
+        console.error("Role error:", error);
+
+        alert("Failed to update role");
+
+    });
+
+}
+
+    </script>
+
+</body>
+
+</html>

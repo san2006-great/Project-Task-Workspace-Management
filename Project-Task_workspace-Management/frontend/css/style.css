@@ -1,0 +1,2084 @@
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #172033;
+    color: white;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    position: relative;
+    top: 0;
+    z-index: 900;
+}
+
+header h1 {
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.brand span {
+    display: block;
+    margin-top: 2px;
+    color: #94a3b8;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   MAIN DASHBOARD
+========================= */
+
+main {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 25px;
+}
+
+main > h2 {
+    font-size: 32px;
+    margin-bottom: 5px;
+    color: #172033;
+}
+
+main > p {
+    color: #64748b;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    transition: 0.2s;
+}
+
+.card h3 {
+    color: #64748b;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 34px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    background: white;
+    padding: 28px;
+    margin-top: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+section h2 {
+    color: #172033;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+select {
+    padding: 12px 14px;
+    margin-right: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    background: white;
+    color: #374151;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+#logoutButton {
+    background: #dc2626;
+    padding: 11px 20px;
+}
+
+#logoutButton:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================
+   WORKSPACE / PROJECT / TASK
+========================= */
+
+#workspaceList h3,
+#projectList h3,
+#taskList h3 {
+    color: #172033;
+    margin-bottom: 7px;
+    font-size: 18px;
+}
+
+#workspaceList p,
+#projectList p,
+#taskList p {
+    color: #64748b;
+}
+
+
+/* ========================= 
+   TASK STATUS CONTROLS 
+========================= */
+
+#taskList select { 
+    min-width: 150px; 
+}
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-container {
+    width: 420px;
+    max-width: 90%;
+    margin: 90px auto;
+    padding: 38px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #172033;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.login-container h2 {
+    color: #2563eb;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 14px;
+    margin: 9px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-container p {
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message {
+    font-weight: bold;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    main {
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 16px 20px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .login-container {
+        margin: 50px auto;
+        padding: 25px;
+    }
+
+    .login-container h1 {
+        font-size: 26px;
+    }
+
+    main > h2 {
+        font-size: 27px;
+    }
+}
+/* =========================
+   PROFESSIONAL TASK CARDS
+========================= */
+
+.task-item {
+    background: white !important;
+    border-left: none !important;
+    border: 1px solid #e2e8f0;
+    padding: 22px !important;
+    margin-top: 16px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: 0.2s;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.09);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.task-header h3 {
+    margin: 0 !important;
+    font-size: 20px !important;
+}
+
+.task-description {
+    margin-bottom: 8px;
+    color: #64748b;
+}
+
+.task-date,
+.task-assignee,
+.task-project {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #64748b;
+}
+
+.priority-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.priority-badge.low {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.priority-badge.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.priority-badge.high {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.task-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.task-status select {
+    margin: 0;
+    min-width: 170px;
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.task-status select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.task-status button {
+    margin: 0;
+    padding: 10px 16px;
+}
+
+/* =========================
+   EDIT AND DELETE BUTTONS
+========================= */
+
+.edit-button {
+    background-color: #f59e0b;
+}
+
+.edit-button:hover {
+    background-color: #d97706;
+}
+
+.delete-button {
+    background-color: #dc2626;
+}
+
+.delete-button:hover {
+    background-color: #b91c1c;
+}
+/* =========================
+   EDIT TASK MODAL
+========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 500px;
+    max-width: 90%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    color: #333;
+    font-size: 28px;
+    padding: 0 8px;
+}
+
+.close-button:hover {
+    background: none;
+    color: #dc2626;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.modal-content textarea {
+    height: 90px;
+    resize: vertical;
+}
+
+.edit-row {
+    display: flex;
+    gap: 15px;
+}
+
+.edit-row > div {
+    flex: 1;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.cancel-button {
+    background-color: #64748b;
+}
+
+.cancel-button:hover {
+    background-color: #475569;
+}
+
+.save-button {
+    background-color: #2563eb;
+}
+
+.save-button:hover {
+    background-color: #1d4ed8;
+}
+
+@media (max-width: 600px) {
+
+    .edit-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+/* =========================
+   DELETE TASK MODAL
+========================= */
+
+.delete-modal {
+    max-width: 450px;
+}
+
+.delete-message {
+    font-size: 16px;
+    margin: 20px 0;
+    color: #555;
+}
+
+.delete-confirm-button {
+    background-color: #dc2626;
+}
+
+.delete-confirm-button:hover {
+    background-color: #b91c1c;
+}
+
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.login-link {
+    margin-top: 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+/* =========================
+   LOGIN PAGE IMPROVEMENT
+========================= */
+
+.login-container {
+    margin: 80px auto;
+    padding: 35px;
+    border: 1px solid #e2e8f0;
+}
+
+.login-container h1 {
+    color: #1e293b;
+    font-size: 28px;
+}
+
+.login-container h2 {
+    color: #2563eb;
+    font-size: 22px;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.login-container button {
+    transition: background-color 0.2s;
+}
+
+.login-container p:last-child {
+    margin-top: 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.login-container p:last-child a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-container p:last-child a:hover {
+    text-decoration: underline;
+}
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background: #1f2937;
+    color: white;
+    padding: 25px 15px;
+    z-index: 1000;
+}
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.sidebar-title h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.sidebar-title p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 13px 15px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.sidebar-nav a:hover {
+    background: #374151;
+    color: white;
+}
+
+/* Move main content */
+
+main {
+    margin-left: 220px;
+}
+
+/* Move header */
+
+.top-header {
+    margin-left: 220px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .top-header {
+        margin-left: 0;
+    }
+}
+/* =========================
+   SIDEBAR IMPROVEMENT
+========================= */
+
+.sidebar-nav a {
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+    transform: translateX(3px);
+    border-left-color: #60a5fa;
+}
+
+.sidebar-nav a:active {
+    background: #374151;
+}
+
+/* Smooth navigation */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Keep sections visible below header */
+
+section {
+    scroll-margin-top: 90px;
+}
+
+#dashboard {
+    scroll-margin-top: 30px;
+}
+/* Edit Modal Fix */
+
+.modal {
+    overflow-y: auto;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.overdue-task {
+    border: 2px solid #dc2626 !important;
+    background-color: #fef2f2;
+}
+
+.overdue-task .task-date {
+    color: #dc2626;
+    font-weight: bold;
+}
+/* Overdue Tasks Section */
+
+.overdue-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.overdue-section h2 {
+    margin-bottom: 15px;
+}
+
+.overdue-task-card {
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 5px solid #dc2626;
+    background: #fef2f2;
+    border-radius: 8px;
+}
+
+.overdue-task-card h3 {
+    margin-bottom: 8px;
+    color: #991b1b;
+}
+
+.overdue-task-card p {
+    margin: 5px 0;
+}
+/* ===== Dashboard Cards - Final Layout ===== */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.dashboard-cards .card {
+    min-width: 0;
+    text-align: center;
+    padding: 22px 15px;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-cards .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.dashboard-cards .card h3 {
+    margin-bottom: 10px;
+}
+
+.dashboard-cards .card p {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Responsive dashboard cards */
+
+@media (max-width: 1100px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ===== Status Summary - Final Design ===== */
+
+.status-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.status-box {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.status-box span {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.status-box strong {
+    display: block;
+    font-size: 30px;
+}
+
+/* Responsive status boxes */
+
+@media (max-width: 700px) {
+
+    .status-summary {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ===== Task Progress - Final Design ===== */
+
+.task-progress {
+    margin-top: 25px;
+    padding: 22px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.task-progress h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 22px;
+    background: #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#taskProgressBar {
+    width: 0%;
+    height: 100%;
+    background: #2563eb;
+    border-radius: 12px;
+    transition: width 0.5s ease;
+}
+
+#taskProgressText {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+/* =========================
+   COLLAPSIBLE SIDEBAR
+========================= */
+
+.sidebar {
+    transition: transform 0.3s ease;
+}
+
+/* Sidebar toggle button */
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+    border-radius: 10px;
+
+    background: rgba(23, 32, 51, 0.92);
+    color: white;
+
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+}
+
+/* Button hover */
+
+.sidebar-toggle:hover {
+    background: #2563eb;
+    transform: none;
+}
+
+/* Closed sidebar */
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+/* Main content when sidebar is closed */
+
+body.sidebar-closed main {
+    margin-left: 0;
+}
+
+/* Header when sidebar is closed */
+
+body.sidebar-closed .top-header {
+    margin-left: 0;
+}
+
+/* Smooth content movement */
+
+main,
+.top-header {
+    transition: margin-left 0.3s ease;
+}
+/* =========================
+   SMOOTH SIDEBAR NAVIGATION
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+/* =========================
+   STATUS VISUAL INDICATOR
+========================= */
+
+.task-item:has(.task-status select option[value="TODO"]:checked) {
+    border-left: 4px solid #2563eb !important;
+}
+
+.task-item:has(.task-status select option[value="IN PROGRESS"]:checked) {
+    border-left: 4px solid #f59e0b !important;
+}
+
+.task-item:has(.task-status select option[value="DONE"]:checked) {
+    border-left: 4px solid #16a34a !important;
+}
+/* Overdue task should always have a red border */
+
+.task-item.overdue-task {
+    border: 2px solid #dc2626 !important;
+}
+/* Overdue label */
+
+.overdue-task .task-date::after {
+    content: "  •  OVERDUE";
+    font-weight: bold;
+    color: #dc2626;
+}
+/* =========================
+   DASHBOARD CARD INDICATORS
+========================= */
+
+.dashboard-cards .card:nth-child(1) {
+    border-top: 4px solid #04070e;
+}
+
+.dashboard-cards .card:nth-child(2) {
+    border-top: 4px solid #cfd521be;
+}
+
+.dashboard-cards .card:nth-child(3) {
+    border-top: 4px solid #1d4ed8;
+}
+
+.dashboard-cards .card:nth-child(4) {
+    border-top: 4px solid #16a34a;
+}
+
+.dashboard-cards .card:nth-child(5) {
+    border-top: 4px solid #dc2626;
+}
+
+/* =========================
+   STATUS SUMMARY INDICATORS
+========================= */
+
+.status-box:nth-child(1) {
+    border-top: 4px solid #2563eb;
+}
+
+.status-box:nth-child(2) {
+    border-top: 4px solid #f59e0b;
+}
+
+.status-box:nth-child(3) {
+    border-top: 4px solid #16a34a;
+}
+/* =========================
+   TASK SEARCH & FILTERS
+========================= */
+
+.task-filters {
+    display: grid;
+    grid-template-columns: 2fr repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+    padding: 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.task-filters input,
+.task-filters select {
+    width: 100%;
+    margin: 0;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+}
+
+.task-filters input:focus,
+.task-filters select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+    outline: none;
+}
+
+/* Responsive filters */
+
+@media (max-width: 1000px) {
+    .task-filters {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .task-filters {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================
+   TASK CREATION FORM
+========================= */
+
+.task-create-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.task-create-form input,
+.task-create-form select {
+    width: 100%;
+    margin: 0;
+}
+
+.task-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.task-field input,
+.task-field select {
+    width: 100%;
+    margin: 0;
+}
+
+.task-create-form button {
+    align-self: end;
+    height: 46px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .task-create-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .task-create-form {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================
+   WORKSPACE & PROJECT CARDS
+========================= */
+
+#workspaceList > div,
+#projectList > div {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#workspaceList > div:hover,
+#projectList > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+#workspaceList h3,
+#projectList h3 {
+    margin-bottom: 6px;
+    color: #172033;
+    font-size: 19px;
+}
+
+#workspaceList p,
+#projectList p {
+    margin-bottom: 14px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+#workspaceList button,
+#projectList button {
+    padding: 9px 15px;
+    margin-right: 8px;
+    font-size: 14px;
+    border-radius: 7px;
+}
+
+#workspaceList button:first-of-type,
+#projectList button:first-of-type {
+    background: #f59e0b;
+}
+
+#workspaceList button:first-of-type:hover,
+#projectList button:first-of-type:hover {
+    background: #d97706;
+}
+
+#workspaceList button:last-of-type,
+#projectList button:last-of-type {
+    background: #dc2626;
+}
+
+#workspaceList button:last-of-type:hover,
+#projectList button:last-of-type:hover {
+    background: #b91c1c;
+}
+/* =========================
+   TASK CARD FINAL POLISH
+========================= */
+
+.task-item {
+    padding: 18px !important;
+    margin-top: 12px !important;
+}
+
+.task-header {
+    margin-bottom: 7px;
+}
+
+.task-description {
+    margin-bottom: 6px;
+}
+
+.task-date,
+.task-assignee,
+.task-project {
+    margin-bottom: 4px;
+}
+
+.task-status {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+/* =========================
+   USER MANAGEMENT UI
+========================= */
+
+.user-section {
+    margin-top: 30px;
+}
+
+.user-section > h2 {
+    margin-bottom: 15px;
+}
+
+#userList {
+    display: grid;
+    gap: 15px;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.user-info h3 {
+    margin-bottom: 6px;
+    color: #172033;
+    font-size: 18px;
+}
+
+.user-info p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.user-role {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-role select {
+    width: auto;
+    margin: 0;
+    padding: 9px 12px;
+}
+.user-role select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+    outline: none;
+}
+
+.role-badge {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.role-badge.admin {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.role-badge.user {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.delete-user-button {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.delete-user-button:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    .user-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .user-role {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+/* =========================
+   MOBILE HEADER POLISH
+========================= */
+
+@media (max-width: 700px) {
+
+    .top-header {
+        padding: 16px 15px;
+        min-height: 78px;
+        align-items: center;
+    }
+
+    .brand h1 {
+        font-size: 21px;
+        line-height: 1.2;
+        margin-bottom: 4px;
+    }
+
+    .brand span {
+        font-size: 12px;
+    }
+
+    #logoutButton {
+        width: auto;
+        min-width: 82px;
+        padding: 10px 14px;
+        font-size: 13px;
+        margin: 0;
+    }
+}
+/* =========================
+   MOBILE SIDEBAR POLISH
+========================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 260px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        background: #172033;
+        box-shadow: 4px 0 18px rgba(0, 0, 0, 0.18);
+        overflow-y: auto;
+    }
+
+    .sidebar-nav {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .sidebar-nav a {
+        width: 100%;
+        padding: 12px 18px;
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .sidebar-toggle {
+        top: 18px;
+        left: 18px;
+        z-index: 1100;
+    }
+}
+/* =========================
+   MOBILE SIDEBAR TOGGLE FIX
+========================= */
+
+@media (max-width: 700px) {
+
+    .top-header .brand {
+        padding-left: 48px;
+    }
+
+    .sidebar-toggle {
+        top: 18px;
+        left: 14px;
+    }
+}
+/* =========================
+   MOBILE DASHBOARD CARDS
+========================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-cards {
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .dashboard-cards .card {
+        padding: 16px 12px;
+        border-radius: 10px;
+    }
+
+    .dashboard-cards .card h3 {
+        font-size: 15px;
+        margin-bottom: 7px;
+    }
+
+    .dashboard-cards .card p {
+        font-size: 24px;
+    }
+}
+/* =========================
+   MOBILE STATUS SUMMARY
+========================= */
+
+@media (max-width: 700px) {
+
+    .status-summary {
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .status-box {
+        padding: 14px 10px;
+        border-radius: 10px;
+    }
+
+    .status-box span {
+        font-size: 13px;
+    }
+
+    .status-box strong {
+        font-size: 22px;
+    }
+}
+/* =========================
+   MOBILE TASK PROGRESS
+========================= */
+
+@media (max-width: 700px) {
+
+    .task-progress {
+        padding: 18px 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    .task-progress h2 {
+        font-size: 19px;
+        margin-bottom: 12px;
+    }
+
+    .progress-bar {
+        height: 12px;
+        border-radius: 8px;
+    }
+
+    #taskProgressText {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+}
+/* =========================
+   MOBILE OVERDUE TASKS
+========================= */
+
+@media (max-width: 700px) {
+
+    .overdue-section {
+        padding: 18px 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    .overdue-section h2 {
+        font-size: 19px;
+        margin-bottom: 12px;
+    }
+
+    #overdueTaskList {
+        font-size: 14px;
+    }
+}
+/* =========================
+   MOBILE WORKSPACE & PROJECT
+========================= */
+
+@media (max-width: 700px) {
+
+    #workspaceSection,
+    #projectSection {
+        padding: 18px 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    #workspaceSection h2,
+    #projectSection h2 {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+
+    #workspaceSection input,
+    #projectSection input,
+    #projectSection select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #workspaceSection button,
+    #projectSection button {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #workspaceList > div,
+    #projectList > div {
+        padding: 15px;
+        margin-top: 12px;
+    }
+}
+/* =========================
+   MOBILE TASK MANAGEMENT
+========================= */
+
+@media (max-width: 700px) {
+
+    #taskSection {
+        padding: 18px 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    #taskSection h2 {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+
+    .task-create-form {
+        gap: 10px;
+    }
+
+    .task-create-form input,
+    .task-create-form select {
+        min-height: 44px;
+    }
+
+    .task-field {
+        gap: 5px;
+    }
+
+    .task-field label {
+        font-size: 13px;
+    }
+
+    #createTaskButton {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .task-filters {
+        gap: 10px;
+        padding: 14px;
+        margin-top: 18px;
+    }
+
+    .task-filters input,
+    .task-filters select {
+        min-height: 44px;
+    }
+}
+/* =========================
+   MOBILE RECENT TASKS
+========================= */
+
+@media (max-width: 700px) {
+
+    #taskList {
+        margin-top: 12px;
+    }
+
+    .task-item {
+        padding: 15px !important;
+        margin-top: 10px !important;
+        border-radius: 10px;
+    }
+
+    .task-header {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .task-header h3 {
+        font-size: 17px;
+    }
+
+    .task-description {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .task-date,
+    .task-assignee,
+    .task-project {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .task-status {
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+}
+/* =========================
+   MOBILE TASK MODALS
+========================= */
+
+@media (max-width: 700px) {
+
+    .modal-content {
+        width: calc(100% - 30px);
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 18px 15px;
+        border-radius: 12px;
+    }
+
+    .modal-header {
+        gap: 10px;
+    }
+
+    .modal-header h2 {
+        font-size: 19px;
+    }
+
+    .close-button {
+        font-size: 24px;
+    }
+
+    .edit-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .modal-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-buttons button {
+        width: 100%;
+        margin: 0;
+    }
+
+    .delete-message {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+/* =========================
+   FINAL MOBILE SPACING
+========================= */
+
+@media (max-width: 700px) {
+
+    main {
+        padding: 0 12px;
+        margin-top: 25px;
+    }
+
+    main > h2 {
+        font-size: 27px;
+    }
+
+    main > p {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+}
+/* =========================
+   COMMENTS MODAL
+   ========================= */
+
+.comments-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.comments-box {
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.comments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.comments-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.close-comments {
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+}
+
+.comments-list {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.comment-item {
+    background: #f5f7fb;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+}
+
+.comment-text {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: #777;
+}
+
+.add-comment-section {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+#commentInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 10px;
+}
+
+.add-comment-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-comment-button:hover {
+    opacity: 0.9;
+}
+/* Disabled Delete Button */
+
+.disabled-delete-button {
+    opacity: 0.45;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.disabled-delete-button:hover {
+    opacity: 0.45;
+}
+
+/* ================= NOTIFICATIONS ================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: 1px solid #dbe2ea;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.notification-button:hover {
+    background: #f1f5f9;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    min-width: 19px;
+    height: 19px;
+    padding: 2px 5px;
+    border-radius: 20px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 15px;
+    text-align: center;
+}
+
+.notification-badge:empty,
+.notification-badge[data-count="0"] {
+    display: none;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    z-index: 1000;
+    width: 340px;
+    max-width: calc(100vw - 30px);
+    max-height: 420px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+}
+
+.notification-dropdown[hidden] {
+    display: none;
+}
+
+.notification-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.notification-dropdown-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #1f2937;
+}
+
+.notification-refresh-button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 7px;
+    background: #eef2ff;
+    color: #3730a3;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.notification-list {
+    padding: 8px;
+}
+
+.notification-item {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #f1f5f9;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #334155;
+    text-align: left;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background: #f8fafc;
+}
+
+.notification-item.unread {
+    background: #eff6ff;
+    border-left: 3px solid #3b82f6;
+}
+
+.notification-message {
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.notification-date {
+    display: block;
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.notification-empty {
+    padding: 14px;
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .header-actions {
+        gap: 8px;
+    }
+
+    .notification-dropdown {
+        right: -55px;
+    }
+}
+
+/* ==========================================
+   FIX FOR CENTERING MAIN DASHBOARD CONTAINER
+========================================== */
+
+main {
+    /* Auto left and right margins center the container in the remaining screen space */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+}
+
+/* Ensure body offset accounts for sidebar width properly when open */
+body:not(.sidebar-closed) main {
+    padding-left: 220px; /* Aligns content smoothly next to the 220px sidebar */
+}
+
+/* Ensure padding resets on mobile view */
+@media (max-width: 700px) {
+    body:not(.sidebar-closed) main {
+        padding-left: 12px;
+    }
+}

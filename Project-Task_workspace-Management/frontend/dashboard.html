@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Project Management</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Button -->
+
+    <button id="sidebarToggle" class="sidebar-toggle">
+        ☰
+    </button>
+
+    <!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-title">
+        <h2>PM</h2>
+        <p>Workspace</p>
+    </div>
+
+    <nav class="sidebar-nav">
+
+    <a href="#dashboard">🏠 Dashboard</a>
+
+    <a href="#workspaceSection">🗂 Workspaces</a>
+
+    <a href="#projectSection">📁 Projects</a>
+
+    <a href="#taskSection">✅ Tasks</a>
+
+   <a href="users.html" id="userManagementLink">
+    👥 User Management
+</a>
+</nav>
+
+</aside>
+
+    <header class="top-header">
+
+    <div class="brand">
+    <h1>Project Management</h1>
+    <span>Jira Clone</span>
+</div>
+
+<div class="header-actions">
+
+    <div class="notification-wrapper">
+
+        <button
+            type="button"
+            id="notificationButton"
+            class="notification-button"
+            aria-label="Notifications"
+            aria-expanded="false">
+            🔔
+            <span id="notificationBadge" class="notification-badge">0</span>
+        </button>
+
+        <div id="notificationDropdown" class="notification-dropdown" hidden>
+
+            <div class="notification-dropdown-header">
+                <h3>Notifications</h3>
+                <button
+                    type="button"
+                    id="refreshNotificationsButton"
+                    class="notification-refresh-button">
+                    Refresh
+                </button>
+            </div>
+
+            <div id="notificationList" class="notification-list">
+                <p class="notification-empty">Loading notifications...</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button id="logoutButton">
+        Logout
+    </button>
+
+</div>
+
+</header>
+
+   <main id="dashboard">
+
+        <h2>Dashboard</h2>
+
+        <p>Welcome to your project management workspace.</p>
+
+        <div class="dashboard-cards">
+
+    <div class="card">
+        <h3>Workspaces</h3>
+        <p id="workspaceCount">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Projects</h3>
+        <p id="projectCount">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Tasks</h3>
+        <p id="taskCount">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Completed</h3>
+        <p id="completedCount">0</p>
+    </div>
+    <div class="card">
+    <h3>Overdue Tasks</h3>
+    <p id="overdueCount">0</p>
+</div>
+
+</div>
+<div class="status-summary">
+
+    <div class="status-box">
+        <span>TODO</span>
+        <strong id="todoCount">0</strong>
+    </div>
+
+    <div class="status-box">
+        <span>IN PROGRESS</span>
+        <strong id="inProgressCount">0</strong>
+    </div>
+
+    <div class="status-box">
+        <span>DONE</span>
+        <strong id="doneCount">0</strong>
+    </div>
+
+</div>
+<div class="task-progress">
+
+    <h2>Task Progress</h2>
+
+    <div class="progress-bar">
+        <div id="taskProgressBar"></div>
+    </div>
+
+    <p id="taskProgressText">
+        0% Completed
+    </p>
+
+</div>
+<section class="overdue-section">
+
+    <h2>⚠️ Overdue Tasks</h2>
+
+    <div id="overdueTaskList">
+        <p>No overdue tasks.</p>
+    </div>
+
+</section>
+        
+        <!-- Workspace Management -->
+
+        <section id="workspaceSection">
+
+            <h2>Workspace Management</h2>
+
+            <input
+                type="text"
+                id="workspaceName"
+                placeholder="Enter workspace name"
+            >
+
+            <input
+                type="text"
+                id="workspaceDescription"
+                placeholder="Enter workspace description"
+            >
+
+            <button id="createWorkspaceButton">
+                Create Workspace
+            </button>
+
+            <div id="workspaceList">
+                <p>No workspaces available.</p>
+            </div>
+
+        </section>
+        <section id="projectSection">
+
+
+    <h2>Project Management</h2>
+
+    <label for="projectWorkspace">Workspace</label>
+
+<select id="projectWorkspace">
+    <option value="">Select Workspace</option>
+</select>
+
+    <input
+        type="text"
+        id="projectName"
+        placeholder="Enter project name"
+    >
+
+    <input
+        type="text"
+        id="projectDescription"
+        placeholder="Enter project description"
+    >
+
+    <button id="createProjectButton">
+        Create Project
+    </button>
+
+    <div id="projectList">
+        <p>No projects available.</p>
+    </div>
+
+</section>
+<!-- Task Management -->
+
+<section id="taskSection">
+
+
+    <h2>Task Management</h2>
+
+    <div class="task-create-form">
+
+    <input
+        type="text"
+        id="taskTitle"
+        placeholder="Enter task title"
+    >
+
+    <input
+        type="text"
+        id="taskDescription"
+        placeholder="Enter task description"
+    >
+
+    <select id="taskStatus">
+        <option value="TODO">TODO</option>
+        <option value="IN PROGRESS">IN PROGRESS</option>
+        <option value="DONE">DONE</option>
+    </select>
+
+    <select id="taskPriority">
+        <option value="LOW">LOW</option>
+        <option value="MEDIUM">MEDIUM</option>
+        <option value="HIGH">HIGH</option>
+    </select>
+
+    <div class="task-field" id="taskAssigneeField">
+    <label for="taskAssignee">Assign To</label>
+
+    <select id="taskAssignee">
+        <option value="">Select User</option>
+    </select>
+</div>
+
+    <div class="task-field">
+        <label for="taskProject">Project</label>
+
+        <select id="taskProject">
+            <option value="">Select Project</option>
+        </select>
+    </div>
+
+    <div class="task-field">
+        <label for="taskDueDate">Due Date</label>
+
+        <input
+            type="date"
+            id="taskDueDate"
+        >
+    </div>
+
+    <button id="createTaskButton">
+        Create Task
+    </button>
+
+</div>
+    <div class="task-filters">
+
+    <input
+        type="text"
+        id="taskSearch"
+        placeholder="Search tasks..."
+    >
+
+    <select id="filterStatus">
+        <option value="">All Status</option>
+        <option value="TODO">TODO</option>
+        <option value="IN PROGRESS">IN PROGRESS</option>
+        <option value="DONE">DONE</option>
+    </select>
+
+    <select id="filterPriority">
+        <option value="">All Priority</option>
+        <option value="LOW">LOW</option>
+        <option value="MEDIUM">MEDIUM</option>
+        <option value="HIGH">HIGH</option>
+    </select>
+    <select id="filterProject">
+    <option value="">All Projects</option>
+</select>
+    <select id="filterAssignee">
+    <option value="">All Assignees</option>
+</select>
+<select id="sortTasks">
+    <option value="">Sort By</option>
+    <option value="title">Title</option>
+    <option value="dueDate">Due Date</option>
+    <option value="priority">Priority</option>
+    <option value="status">Status</option>
+    <option value="assignee">Assignee</option>
+</select>
+
+</div>
+
+</section>
+
+        <section>
+
+            <h2>Recent Tasks</h2>
+
+            <div id="taskList">
+                <p>No tasks available.</p>
+            </div>
+
+        </section>
+
+    </main>
+    <!-- Edit Task Modal -->
+
+<div id="editTaskModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Edit Task</h2>
+
+            <button
+                type="button"
+                class="close-button"
+                onclick="closeEditModal()">
+                &times;
+            </button>
+        </div>
+
+        <form id="editTaskForm">
+
+            <input
+                type="hidden"
+                id="editTaskId"
+            >
+
+            <label>Task Title</label>
+
+            <input
+                type="text"
+                id="editTaskTitle"
+                required
+            >
+
+            <label>Description</label>
+
+            <textarea
+                id="editTaskDescription"
+                required
+            ></textarea>
+
+            <div class="edit-row">
+
+                <div>
+                    <label>Status</label>
+
+                    <select id="editTaskStatus">
+
+                        <option value="TODO">TODO</option>
+                        <option value="IN PROGRESS">IN PROGRESS</option>
+                        <option value="DONE">DONE</option>
+
+                    </select>
+                </div>
+
+                <div>
+                    <label>Priority</label>
+
+                    <select id="editTaskPriority">
+
+                        <option value="LOW">LOW</option>
+                        <option value="MEDIUM">MEDIUM</option>
+                        <option value="HIGH">HIGH</option>
+
+                    </select>
+                </div>
+
+            </div>
+            <label for="editTaskAssignee">Assign To</label>
+
+<select id="editTaskAssignee">
+    <option value="">Select User</option>
+</select>
+
+            <label>Due Date</label>
+
+            <input
+                type="date"
+                id="editTaskDueDate"
+                required
+            >
+
+            <div class="modal-buttons">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    onclick="closeEditModal()">
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-button">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- Delete Confirmation Modal -->
+
+<div id="deleteTaskModal" class="modal">
+
+    <div class="modal-content delete-modal">
+
+        <div class="modal-header">
+            <h2>Delete Task</h2>
+
+            <button
+                type="button"
+                class="close-button"
+                onclick="closeDeleteModal()">
+                &times;
+            </button>
+        </div>
+
+        <p class="delete-message">
+            Are you sure you want to delete this task?
+        </p>
+
+        <input
+            type="hidden"
+            id="deleteTaskId"
+        >
+
+        <div class="modal-buttons">
+
+            <button
+                type="button"
+                class="cancel-button"
+                onclick="closeDeleteModal()">
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="delete-confirm-button"
+                onclick="confirmDeleteTask()">
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="js/app.js"></script>
+<!-- Comments Modal -->
+<div id="commentsModal" class="comments-modal">
+    <div class="comments-box">
+
+        <div class="comments-header">
+            <h2>💬 Task Comments</h2>
+
+            <button
+                type="button"
+                class="close-comments"
+                onclick="closeComments()">
+                ×
+            </button>
+        </div>
+
+        <div id="commentsList" class="comments-list">
+            <p>Loading comments...</p>
+        </div>
+
+        <div class="add-comment-section">
+
+            <textarea
+                id="commentInput"
+                placeholder="Write a comment..."
+                rows="3"></textarea>
+
+            <button
+                type="button"
+                class="add-comment-button"
+                onclick="addComment()">
+                Add Comment
+            </button>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
